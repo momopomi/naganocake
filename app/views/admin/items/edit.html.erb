@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>商品編集</h2>
+    </div>
+  </div>
+   <div class="row">  
+    <div class="col-sm-10 px-sm-0 mx-auto">
+      <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+      <table>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品画像 %></th>
+          <td><%= f.attachment_field :image %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品名 %></th>
+          <td><%= f.text_field :name %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :商品説明 %></th>
+          <td><%= f.text_area :introduction, size: "50x5" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :税抜価格 %></th>
+          <td><%= f.text_field :price %>円</td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-action">
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </div>
+      </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

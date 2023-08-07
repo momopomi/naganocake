@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h2>
+    </div>
+  </div>
+  <%= form_with model: @customer, url: admin_customer_path(@customer.id), local: :true, method: :put do |f| %>
+    <div class="row">
+      <div class="col-2 offset-md-1"><%= f.label "お名前" %></div>
+      <div class="col-1 text-right pr-0"><%= f.label "(姓)" %></div>
+      <div class="col-2"><%= f.text_field :last_name, :size => "10", placeholder: "長野" %></div>
+      <div class="col-1 text-right pr-0"><%= f.label "(名)" %></div>
+      <div class="col-3"><%= f.text_field :first_name, :size => "10", placeholder: "花子" %></div>
+    </div>
+    <div class="row">
+      <div class="col-2 offset-md-1"><%= f.label "フリガナ" %></div>
+      <div class="col-1 text-right pr-0"><%= f.label "(セイ)" %></div>
+      <div class="col-2"><%= f.text_field :last_name_kana, :size => "10", placeholder: "ナガノ" %></div>
+      <div class="col-1 text-right pr-0"><%= f.label "(メイ)" %></div>
+      <div class="col-3"><%= f.text_field :first_name_kana, :size => "10", placeholder: "ハナコ" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
+      <div class="col-3"><%= f.email_field :email, :size => "25", placeholder: "sample@example.com" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-md-1"><%= f.label "郵便番号(ハイフンなし)" %></div>
+      <div class="col-3"><%= f.text_field :postal_code, :size => "10", placeholder: "1001000" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-md-1"><%= f.label "住所" %></div>
+      <div class="col-3"><%= f.text_field :address, :size => "40", placeholder: "東京都渋谷区代々木神園町0-0" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-md-1"><%= f.label "電話番号(ハイフンなし)" %></div>
+      <div class="col-3"><%= f.text_field :telephone_number, placeholder: "08012345678" %></div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-md-1"><%= f.label "会員ステータス" %></div>
+      <div class="col-3"><%= f.radio_button :is_deleted, :false %>
+        <%= f.label :is_deleted, "有効" %>
+        <%= f.radio_button :is_deleted, :true %>
+        <%= f.label :is_deleted, "退会" %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-lg-6 px-sm-0 offset-sm-1">
+        <%= f.submit "変更を保存", class:"btn btn-success my-4" %>
+      </div>
+    </div>
+  <% end %>
+</div>

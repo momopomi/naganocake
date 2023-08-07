@@ -9,7 +9,7 @@
       <% end %>
     </div>
     <div class="row">
-      <div class="col-sm-10 px-sm-0 mx-auto mb-5">
+      <div class="col-sm-12 px-sm-0 mx-auto mb-5">
       <table class="table text-center admin-items mb-5">
           <thead>
             <tr>
@@ -26,15 +26,7 @@
                 <u><%= item.name %></u>
               </td>
               <% end %>
-              <td class="align-middle"><%= item.price_excluding_tax %></td>
-              <td class="align-middle"><%= item.genre.name %></td>
-              <td class="align-middle">
-                <% if item.sales_status == true %>
-                 <p class="text-success font-weight-bold">販売中</p>
-                <% else %>
-                  <p class="text-danger font-weight-bold">販売停止中</p>
-                <% end %>
-              </td>
+              <td class="align-middle"><%= item.price %></td>
             </tr>
           </tbody>
           <% end %>

@@ -39,14 +39,14 @@
                 <%= image_tag cart_item.item.image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %>
                 <%= cart_item.item.name %>
               </td>
-              <td class="align-middle"><%= change_price_excluding_tax(cart_item.item.price_excluding_tax).to_s(:delimited) %></td>
+              <td class="align-middle"><%= cart_item.item.price.to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
                   <%= f.number_field :amount, in: 1..999, step: 1, id: "amount-number-field-#{i}" %>
                   <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
                 <% end %>
               </td>
-              <td class="align-middle"><%= (amount = change_price_excluding_tax(cart_item.item.price_excluding_tax * cart_item.amount)).to_s(:delimited) %></td>
+              <td class="align-middle"><%= (amount = cart_item.item.price * cart_item.amount).to_s(:delimited) %></td>
               <td class="align-middle text-center"><%= link_to "削除する", cart_item_path(cart_item), class: "btn btn-danger", id: "cart-item-delete-#{i}", method: :delete, data: { confirm: '削除しますか？' } %></td>
             </tr>
             <% @total_amount += amount %>

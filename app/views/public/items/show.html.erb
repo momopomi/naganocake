@@ -8,13 +8,13 @@
       <h4><%= simple_format(@item.introduction)%></h4>
       <h3>¥ <%=  @item.price %> (税込)</h3>
     </div> 
-    <div class="col-xs-5">
+    <div class="col-xs-12 col-sm-12 col-md-6 mx-auto text-right">
       <strong class="error"><%= notice %></strong>
-        <%= form_for @cart_item, url: public_cart_items_path(@cart_item) do |f| %>
+        <%= form_for @cart_item, url: cart_items_path(@cart_item) do |f| %>
         <%= f.hidden_field :item_id  , :value => @item.id%>
-        <%= f.number_field :number_of_items , placeholder: "個数選択", min: 1, max: 20 %> <!-- f.selectでも可。placeholderで空欄時に個数選択を表示。選択数の最低値を設定するためにminを設定。 -->
+        <%= f.select :amount, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"} %>
         <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
         <% end %>
-      </div>  
+    </div>  
   </div>
 </div>

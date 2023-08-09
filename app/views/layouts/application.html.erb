@@ -42,7 +42,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to about_path, class: 'nav-link text-dark' do %>
+                <%= link_to cart_items_path(current_customer.id), class: 'nav-link text-dark' do %>
                 <i class="fas fa-cart">カート</i>
                 <% end %>
               </li>

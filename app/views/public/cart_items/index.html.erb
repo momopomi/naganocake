@@ -42,7 +42,7 @@
               <td class="align-middle"><%= cart_item.item.price.to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-                  <%= f.number_field :amount, in: 1..999, step: 1, id: "amount-number-field-#{i}" %>
+                  <%= f.select :amount, *[1..10], {:prompt => "個数選択"} %>
                   <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
                 <% end %>
               </td>

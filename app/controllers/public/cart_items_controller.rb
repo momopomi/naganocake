@@ -18,6 +18,14 @@ class Public::CartItemsController < ApplicationController
         redirect_back(fallback_location: root_path)
       end
   end
+  
+  def with_tax_price
+    (item_price * 1.1).floor
+  end
+  
+  def subtotal
+    item.with_tax_price * amount
+  end
 
   def update
     @cart_item = CartItem.find(params[:id])
@@ -31,6 +39,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    #@cart_itmes = current_customer.cart_items.all
     CartItem.where(customer_id: current_customer.id).destroy_all
     flash[:success] = "カートの中身を空にしました"
     redirect_back(fallback_location: root_path)

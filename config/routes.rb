@@ -26,7 +26,7 @@ scope module: :public do
     get "/customers/check" => "customers#check"
     patch "/customers/withdraw" => "customers#withdraw"
     resource :customers, only: [:show, :update, :edit]
-    post "/orders/confirm" => "orders#confirm"
+    post "/orders/check" => "orders#check"
     get "/orders/thanks" => "orders#thanks"
     resources :orders, only: [:new, :create, :show, :index]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"

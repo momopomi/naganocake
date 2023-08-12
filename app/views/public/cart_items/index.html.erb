@@ -39,17 +39,17 @@
                 <%= image_tag cart_item.item.image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %>
                 <%= cart_item.item.name %>
               </td>
-              <td class="align-middle"><%= cart_item.item.price.to_s(:delimited) %></td>
+              <td class="align-middle"><%= cart_item.item.with_tax_price%></td>
               <td class="align-middle">
                 <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
                   <%= f.select :amount, *[1..10], {:prompt => "個数選択"} %>
                   <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
                 <% end %>
               </td>
-              <td class="align-middle"><%= (amount = cart_item.item.price * cart_item.amount).to_s(:delimited) %></td>
+              <td class="align-middle"><%= cart_item.subtotal%></td>
               <td class="align-middle text-center"><%= link_to "削除する", cart_item_path(cart_item), class: "btn btn-danger", id: "cart-item-delete-#{i}", method: :delete, data: { confirm: '削除しますか？' } %></td>
             </tr>
-            <% @total_amount += amount %>
+           <% @total += cart_item.subtotal %>
           <% end %>
         </tbody>
       </table>
@@ -62,7 +62,7 @@
     </div>
     <div class="col-sm-3 px-sm-0">
       <table class="table table-bordered">
-        <tr><th class="table-active" style="width:50%">合計金額</td><td style="width:50%"><%= @total_amount.to_s(:delimited) %></td></tr>
+        <tr><th class="table-active" style="width:50%">合計金額</td><td style="width:50%"><%= @total %></td></tr>
       </table>
     </div>
   </div>

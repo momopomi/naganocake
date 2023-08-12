@@ -5,6 +5,8 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)
     #@cart_itmes = current_customer.cart_items.all
+    @total = 0
+    
   end
 
   def create
@@ -17,14 +19,6 @@ class Public::CartItemsController < ApplicationController
         flash[:danger] = "予期せぬエラーが発生しました"
         redirect_back(fallback_location: root_path)
       end
-  end
-  
-  def with_tax_price
-    (item_price * 1.1).floor
-  end
-  
-  def subtotal
-    item.with_tax_price * amount
   end
 
   def update

@@ -28,7 +28,7 @@ scope module: :public do
     resource :customers, only: [:show, :update, :edit]
     post "/orders/check" => "orders#check"
     get "/orders/thanks" => "orders#thanks"
-    resources :orders, only: [:new, :create, :show, :index]
+    resources :orders, only: [:new, :create, :show, :index,]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
     resources :cart_items, only: [:index, :create, :destroy, :update]
     resources :items, only: [:index, :show]

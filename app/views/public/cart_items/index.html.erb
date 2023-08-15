@@ -39,11 +39,11 @@
                 <%= image_tag cart_item.item.image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %>
                 <%= cart_item.item.name %>
               </td>
+              <%= form_with model: cart_item, local: true do |f| %>
               <td class="align-middle"><%= cart_item.item.with_tax_price%></td>
               <td class="align-middle">
-                <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local: true do |f| %>
-                  <%= f.select :amount, *[1..10], {:prompt => "個数選択"} %>
-                  <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
+                <%= f.select :amount, *[1..10], {:prompt => "個数選択"} %>
+                <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
                 <% end %>
               </td>
               <td class="align-middle"><%= cart_item.subtotal%></td>
@@ -72,4 +72,3 @@
     </div>
   </div>
   <% end %>
-</div>

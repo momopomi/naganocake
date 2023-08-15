@@ -9,32 +9,32 @@
     <div class="row">
       <div class="col-2 offset-md-1"><%= f.label "お名前" %></div>
       <div class="col-1 text-right pr-0"><%= f.label "(姓)" %></div>
-      <div class="col-2"><%= f.text_field :last_name, :size => "10", placeholder: "長野" %></div>
+      <div class="col-2"><%= f.text_field :last_name, :size => "10"  %></div>
       <div class="col-1 text-right pr-0"><%= f.label "(名)" %></div>
-      <div class="col-3"><%= f.text_field :first_name, :size => "10", placeholder: "花子" %></div>
+      <div class="col-3"><%= f.text_field :first_name, :size => "10" %></div>
     </div>
     <div class="row">
       <div class="col-2 offset-md-1"><%= f.label "フリガナ" %></div>
       <div class="col-1 text-right pr-0"><%= f.label "(セイ)" %></div>
-      <div class="col-2"><%= f.text_field :last_name_kana, :size => "10", placeholder: "ナガノ" %></div>
+      <div class="col-2"><%= f.text_field :last_name_kana, :size => "10" %></div>
       <div class="col-1 text-right pr-0"><%= f.label "(メイ)" %></div>
-      <div class="col-3"><%= f.text_field :first_name_kana, :size => "10", placeholder: "ハナコ" %></div>
+      <div class="col-3"><%= f.text_field :first_name_kana, :size => "10" %></div>
     </div>
     <div class="row">
       <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
-      <div class="col-3"><%= f.email_field :email, :size => "25", placeholder: "sample@example.com" %></div>
+      <div class="col-3"><%= f.email_field :email, :size => "25" %></div>
     </div>
     <div class="row">
       <div class="col-3 offset-md-1"><%= f.label "郵便番号(ハイフンなし)" %></div>
-      <div class="col-3"><%= f.text_field :postal_code, :size => "10", placeholder: "1001000" %></div>
+      <div class="col-3"><%= f.text_field :postal_code, :size => "10" %></div>
     </div>
     <div class="row">
       <div class="col-3 offset-md-1"><%= f.label "住所" %></div>
-      <div class="col-3"><%= f.text_field :address, :size => "40", placeholder: "東京都渋谷区代々木神園町0-0" %></div>
+      <div class="col-3"><%= f.text_field :address, :size => "40" %></div>
     </div>
     <div class="row">
       <div class="col-3 offset-md-1"><%= f.label "電話番号(ハイフンなし)" %></div>
-      <div class="col-3"><%= f.text_field :telephone_number, placeholder: "08012345678" %></div>
+      <div class="col-3"><%= f.text_field :telephone_number %></div>
     </div>
 
     </div>

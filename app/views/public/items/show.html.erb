@@ -9,7 +9,7 @@
       <h3>¥ <%=  @item.price %> (税込)</h3>
     </div> 
     <div class="col-xs-12 col-sm-12 col-md-6 mx-auto text-right">
-      <strong class="error"><%= notice %></strong>
+      <strong class="error"></strong>
         <%= form_for @cart_item, url: cart_items_path(@cart_item) do |f| %>
         <%= f.hidden_field :item_id  , :value => @item.id%>
         <%= f.select :amount, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"} %>

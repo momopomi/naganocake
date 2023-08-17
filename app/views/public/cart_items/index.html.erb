@@ -42,7 +42,9 @@
               <%= form_with model: cart_item, local: true do |f| %>
               <td class="align-middle"><%= cart_item.item.with_tax_price%></td>
               <td class="align-middle">
-                <%= f.select :amount, *[1..10], {:prompt => "個数選択"} %>
+                <%= f.hidden_field :item_id, value: cart_item.item.id %>
+                <%= f.hidden_field :customer_id, :value => current_customer.id %>
+                <%= f.select :amount, *[1..99], {:prompt => "個数選択"} %>
                 <%= f.submit "変更", class: "btn btn-success", id: "amount-submit-#{i}" %>
                 <% end %>
               </td>

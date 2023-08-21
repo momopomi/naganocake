@@ -28,9 +28,7 @@
           <tr>
             <td class="align-middle"><%= order_detail.item.name %> </td>
             <td class="align-middle"><%= order_detail.purchase_price %></td>
-            <td class="align-middle">
-              <%= order_detail.amount %>
-            </td>
+            <td class="align-middle"><%= order_detail.amount %></td>
             <td class="align-middle"><%=order_detail.purchase_price * order_detail.amount %>円</td>
             <td class="align-middle">
               <%= form_with model: order_detail, url: admin_order_detail_path, method: :patch, local: true do |f| %>
@@ -49,14 +47,14 @@
           <th class="table-active" style="width:50%">商品合計</th>
           <td>
             <% @add_tax_total_payment = @order.billing_amount %>
-            <%= @add_tax_total_payment %>円
+            <%= @add_tax_total_payment- @order.shipping_fare %>円
           </td>
         </tr>
         <tr><th class="table-active" style="width:50%">送料</th><td><%= @order.shipping_fare %>円</td></tr>
         <tr>
           <th class="table-active" style="width:50%">請求金額合計</th>
           <td>
-            <% @total_payment_add_shipping_fee = @add_tax_total_payment + @order.shipping_fare %>
+            <% @total_payment_add_shipping_fee = @add_tax_total_payment %>
             <%= @total_payment_add_shipping_fee %> 円
           </td>
         </tr>

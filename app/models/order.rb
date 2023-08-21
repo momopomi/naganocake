@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   has_many :items, through: :order_details
 
 
-  enum payment_method: { credit_card: 0, transfer: 1 }
+  enum payment_method: { クレジットカード: 0, 銀行振込: 1 }
 
   #@order.valid?を使用したいための、仮情報入力
   def temporary_information_input(current_customer_id)
@@ -27,6 +27,8 @@ class Order < ApplicationRecord
     self.address = address
     self.name = name
   end
+  
+ 
 
   def subtotal
     item.with_tax_price * amount
